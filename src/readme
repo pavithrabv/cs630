@@ -1,0 +1,25 @@
+createairdb.sql: create needed airdb tables
+dropairdb.sql: drop airdb tables
+
+AssignFlights1.java: top-level program
+Flight.java:  Java bean for Flights, holds flight information including flight number, origin, destination etc.
+AirDB.java Database access code
+
+To build: javac *.java
+To run: java -cp ojdbc6.jar:. AssignFlights1
+
+First use createairdb.sql to create the needed table.
+
+topcat$ java -cp ojdbc6.jar:. AssignFlights1
+Picked up _JAVA_OPTIONS: -Djava.security.egd=file:/dev/../dev/urandom
+Please enter information for connection to the database
+Using Oracle (o) or MySql (m)? o
+Oracle username: cs630test
+Oracle password: cs630test
+use canned Oracle connection string (y/n): y
+host: dbs3.cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
