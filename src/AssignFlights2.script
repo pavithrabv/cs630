@@ -1,11 +1,11 @@
-Script started on Sun 27 Nov 2016 07:51:34 PM EST
-eoneil@topcat:~/630/hw4soln$ exitsqlplus cs630test/cs630test@dbs3.cs.umb.edu/dbs3<dropairdb.sql
+Script started on Sun 27 Nov 2016 08:04:50 PM EST
+eoneil@topcat:~/630/hw4soln$ sqlplus cs630test/cs630test@dbs3.cs.umb.edu/dbs3<do[Kropairdb .sql
 
-SQL*Plus: Release 12.1.0.2.0 Production on Sun Nov 27 19:51:48 2016
+SQL*Plus: Release 12.1.0.2.0 Production on Sun Nov 27 20:05:14 2016
 
 Copyright (c) 1982, 2014, Oracle.  All rights reserved.
 
-Last Successful login time: Sun Nov 27 2016 19:50:45 -05:00
+Last Successful login time: Sun Nov 27 2016 20:04:26 -05:00
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
@@ -49,14 +49,13 @@ Table dropped.
 
 SQL> Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
 With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
-eoneil@topcat:~/630/hw4soln$ sqlplus cs630test/cs630test@dbs3.cs.umb.edu/dbs3<dropairdb..sql[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[Kcreated[Kair db.sql
+eoneil@topcat:~/630/hw4soln$ sqlplus cs630test/cs630test@dbs3.cs.umb.edu/dbs3<createairdb..sql
 
-SQL*Plus: Release 12.1.0.2.0 Production on Sun Nov 27 19:52:00 2016
+SQL*Plus: Release 12.1.0.2.0 Production on Sun Nov 27 20:05:23 2016
 
 Copyright (c) 1982, 2014, Oracle.  All rights reserved.
 
-Last Successful login time: Sun Nov 27 2016 19:51:13 -05:00
+Last Successful login time: Sun Nov 27 2016 20:04:39 -05:00
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
@@ -580,104 +579,142 @@ SQL>
 
 SQL> Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
 With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
-eoneil@topcat:~/630/hw4soln$ javac AssignFlights1.java
+eoneil@topcat:~/630/hw4soln$ javac AssignFlights2.java
 Picked up _JAVA_OPTIONS: -Djava.security.egd=file:/dev/../dev/urandom
-eoneil@topcat:~/630/hw4soln$ java -cp ojdbc6.jar:. AssignFlights1
+eoneil@topcat:~/630/hw4soln$ java -cp ojdbc6.jar:. AssignFlights2
 Picked up _JAVA_OPTIONS: -Djava.security.egd=file:/dev/../dev/urandom
 Please enter information for connection to the database
 Using Oracle (o) or MySql (m)? o
 Oracle username: cs630test
 Oracle password: cs630test
-host: dbs3.cs.umb.edu
+host: dbs3.cs.umb.eud  di u
 port (often 1521): 1521
 sid (site id): dbs3
 using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
 Connecting to the database...using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
 Connecting to the database...connected.
 for flt 7789, from Madison, found: 7 269734834 (520)
-  found tie:7 159542516 (520)
+  extra info: found tie:7 159542516 (520)
+flights1 row updated
 flight_assignments row inserted
 for flt 387, from Los Angeles, found: 2 242518965 (3383)
-  found tie:2 552455318 (3383)
-  found tie:2 142519864 (3383)
-  found tie:2 11564812 (3383)
+  extra info: found tie:2 552455318 (3383)
+  extra info: found tie:2 142519864 (3383)
+  extra info: found tie:2 11564812 (3383)
+flights1 row updated
 flight_assignments row inserted
 for flt 702, from Madison, found: 5 159542516 (1530)
+flights1 row updated
 flight_assignments row inserted
 for flt 2223, from Madison, found: 6 356187925 (2128)
-  found tie:6 90873519 (2128)
-flight_assignments row inserted
-for flt 5694, from Madison, found: 6 90873519 (2128)
+  extra info: found tie:6 90873519 (2128)
+flights1 row updated
 flight_assignments row inserted
 for flt 76, from Chicago, found: 2 567354612 (3383)
-  found tie:2 141582651 (3383)
+  extra info: found tie:2 141582651 (3383)
+flights1 row updated
+flight_assignments row inserted
+for flt 5694, from Madison, found: 6 90873519 (2128)
+flights1 row updated
 flight_assignments row inserted
 for flt 13, from Los Angeles, found: 14 390487451 (1805)
-  found tie:14 552455318 (1805)
+  extra info: found tie:14 552455318 (1805)
+flights1 row updated
 flight_assignments row inserted
+flights1 row updated
+Problem handled in main
+SQLException Message:ORA-08177: can't serialize access for this transaction
+
+
+eoneil@topcat:~/630/hw4soln$ java -cp ojdbc6.jar:. AssignFlights2
+Picked up _JAVA_OPTIONS: -Djava.security.egd=file:/dev/../dev/urandom
+Please enter information for connection to the database
+Using Oracle (o) or MySql (m)? o
+Oracle username: cs630test
+Oracle password: cs630test
+host: dbs3.vs  cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
+for flt 7789, from Madison, found: 7 269734834 (520)
+  extra info: found tie:7 159542516 (520)
+flights1 row updated
+flight_assignments row inserted
+for flt 387, from Los Angeles, found: 2 242518965 (3383)
+  extra info: found tie:2 552455318 (3383)
+  extra info: found tie:2 142519864 (3383)
+  extra info: found tie:2 11564812 (3383)
+flights1 row updated
+flight_assignments row inserted
+for flt 702, from Madison, found: 5 159542516 (1530)
+flights1 row updated
+flight_assignments row inserted
+for flt 2223, from Madison, found: 6 356187925 (2128)
+  extra info: found tie:6 90873519 (2128)
+flights1 row updated
+flight_assignments row inserted
+for flt 76, from Chicago, found: 2 567354612 (3383)
+  extra info: found tie:2 141582651 (3383)
+flights1 row updated
+flight_assignments row inserted
+for flt 5694, from Madison, found: 6 90873519 (2128)
+flights1 row updated
+flight_assignments row inserted
+for flt 13, from Los Angeles, found: 14 390487451 (1805)
+  extra info: found tie:14 552455318 (1805)
+flights1 row updated
+flight_assignments row inserted
+flights1 row updated
 ***flt 701 from Detroit delayed_flights row inserted
 for flt 68, from Chicago, found: 2 141582651 (3383)
+flights1 row updated
 flight_assignments row inserted
 for flt 33, from Los Angeles, found: 13 142519864 (2605)
+flights1 row updated
 flight_assignments row inserted
 for flt 99, from Los Angeles, found: 2 11564812 (3383)
-  found tie:2 552455318 (3383)
+  extra info: found tie:2 552455318 (3383)
+flights1 row updated
 flight_assignments row inserted
+flights1 row updated
 ***flt 149 from Pittsburgh delayed_flights row inserted
 for flt 304, from Minneapolis, found: 5 556784565 (1530)
+flights1 row updated
 flight_assignments row inserted
 for flt 346, from Los Angeles, found: 14 552455318 (1805)
+flights1 row updated
 flight_assignments row inserted
 for flt 2, from Los Angeles, found: 9 355548984 (6900)
+flights1 row updated
 flight_assignments row inserted
+flights1 row updated
 ***flt 34 from Los Angeles delayed_flights row inserted
 for flt 4884, from Madison, found: 10 274878974 (4010)
+flights1 row updated
 flight_assignments row inserted
+flights1 row updated
 ***flt 7 from Los Angeles delayed_flights row inserted
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-one row inserted into new_location
-eoneil@topcat:~/630/hw4soln$ sqlplus cs630test/cs630test@dbs3.cs.umb.edu/dbs3
+no more rows
+You have mail in /var/mail/eoneil
+eoneil@topcat:~/630/hw4soln$ exit
+exit
 
-SQL*Plus: Release 12.1.0.2.0 Production on Sun Nov 27 19:55:17 2016
+Script done on Sun 27 Nov 2016 08:19:14 PM EST
+Script started on Sun 27 Nov 2016 08:19:40 PM EST
+eoneil@topcat:~/630/hw4soln$ !sql
+
+SQL*Plus: Release 12.1.0.2.0 Production on Sun Nov 27 20:19:53 2016
 
 Copyright (c) 1982, 2014, Oracle.  All rights reserved.
 
-Last Successful login time: Sun Nov 27 2016 19:54:33 -05:00
+Last Successful login time: Sun Nov 27 2016 20:19:10 -05:00
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
 With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
-SQL> 
 SQL> select * from flight_assignments order by flno;
 
       FLNO        AID        EID
@@ -702,7 +739,7 @@ SQL> select * from flight_assignments order by flno;
 
 14 rows selected.
 
-SQL> select f I * from delayed_flights;
+SQL> sle  elect * from delayed_fi lights;
 
       FLNO
 ----------
@@ -714,7 +751,7 @@ SQL> select f I * from delayed_flights;
 SQL> exit
 Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
 With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
-eieoneil@topcat:~/630/hw4soln$ exit
+eoneil@topcat:~/630/hw4soln$ exit
 exit
 
-Script done on Sun 27 Nov 2016 07:56:31 PM EST
+Script done on Sun 27 Nov 2016 08:20:43 PM EST

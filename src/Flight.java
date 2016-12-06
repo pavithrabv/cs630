@@ -1,127 +1,92 @@
+import java.sql.*;
+import java.io.Serializable;
 
-import java.sql.Timestamp;
-/**
- * Created by pavithra on 11/27/16.
- */
-public class Flight {
-    private long flightNumber ;
-    private String origin       ;
-    private String destination  ;
-    private long distance     ;
-    private Timestamp departs      ;
-    private Timestamp arrives      ;
-    private double price        ;
-    private long isProcessed  ;
+public class Flight implements Serializable {
+	private static final long serialVersionUID = 1L;
+	private int flino;
+	private String origin;
+	private String destination;
+	private int distance;
+	private Timestamp departs;
+	private Timestamp arrives;
+	private double price;
+	private int is_processed;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	public Flight(int flino, String origin, String destination, int distance, Timestamp departs, Timestamp arrives,
+			double price, int is_processed) {
+		this.flino = flino;
+		this.origin = origin;
+		this.destination = destination;
+		this.distance = distance;
+		this.departs = departs;
+		this.arrives = arrives;
+		this.price = price;
+		this.is_processed = is_processed;
 
-        Flight flight = (Flight) o;
+	}
 
-        if (flightNumber != flight.flightNumber) return false;
-        if (distance != flight.distance) return false;
-        if (Double.compare(flight.price, price) != 0) return false;
-        if (isProcessed != flight.isProcessed) return false;
-        if (origin != null ? !origin.equals(flight.origin) : flight.origin != null) return false;
-        if (destination != null ? !destination.equals(flight.destination) : flight.destination != null) return false;
-        if (departs != null ? !departs.equals(flight.departs) : flight.departs != null) return false;
-        return arrives != null ? arrives.equals(flight.arrives) : flight.arrives == null;
+	public int getFlightNumber() {
+		return this.flino;
+	}
 
-    }
+	public void setFlightNumber(int flino_new) {
+		this.flino = flino_new;
+	}
 
-    @Override
-    public int hashCode() {
-        int result;
-        long temp;
-        result = (int) (flightNumber ^ (flightNumber >>> 32));
-        result = 31 * result + (origin != null ? origin.hashCode() : 0);
-        result = 31 * result + (destination != null ? destination.hashCode() : 0);
-        result = 31 * result + (int) (distance ^ (distance >>> 32));
-        result = 31 * result + (departs != null ? departs.hashCode() : 0);
-        result = 31 * result + (arrives != null ? arrives.hashCode() : 0);
-        temp = Double.doubleToLongBits(price);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (isProcessed ^ (isProcessed >>> 32));
-        return result;
-    }
+	public String getOrigin() {
+		return this.origin;
+	}
 
-    @Override
-    public String toString() {
-        return "Flight{" +
-                "flightNumber=" + flightNumber +
-                ", origin='" + origin + '\'' +
-                ", destination='" + destination + '\'' +
-                ", distance=" + distance +
-                ", departs=" + departs +
-                ", arrives=" + arrives +
-                ", price=" + price +
-                ", isProcessed=" + isProcessed +
-                '}';
-    }
+	public void setOrigin(String origin_new) {
+		this.origin = origin_new;
+	}
 
-    public long getFlightNumber() {
-        return flightNumber;
-    }
+	public String getDestination() {
+		return this.destination;
+	}
 
-    public void setFlightNumber(long flightNumber) {
-        this.flightNumber = flightNumber;
-    }
+	public void setDestination(String destination_new) {
+		this.destination = destination_new;
+	}
 
-    public String getOrigin() {
-        return origin;
-    }
+	public int getDistance() {
+		return this.distance;
+	}
 
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
+	public void setDistance(int distance_new) {
+		this.flino = distance_new;
+	}
 
-    public String getDestination() {
-        return destination;
-    }
+	public Timestamp getDeparts() {
+		return this.departs;
+	}
 
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
+	public void setDeparts(Timestamp departs_new) {
+		this.departs = departs_new;
+	}
 
-    public long getDistance() {
-        return distance;
-    }
+	public Timestamp getArrives() {
+		return this.arrives;
+	}
 
-    public void setDistance(long distance) {
-        this.distance = distance;
-    }
+	public void setArrives(Timestamp arrives_new) {
+		this.arrives = arrives_new;
+	}
 
-    public Timestamp getDeparts() {
-        return departs;
-    }
+	public double getPrice() {
+		return this.price;
+	}
 
-    public void setDeparts(Timestamp departs) {
-        this.departs = departs;
-    }
+	public void setPrice(double price_new) {
+		this.price = price_new;
+	}
 
-    public Timestamp getArrives() {
-        return arrives;
-    }
+	public int getIs_processed() {
+		return this.is_processed;
+	}
 
-    public void setArrives(Timestamp arrives) {
-        this.arrives = arrives;
-    }
+	public void setIs_processed(int is_processed_new) {
+		this.is_processed = is_processed_new;
+	}
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public long getIsProcessed() {
-        return isProcessed;
-    }
-
-    public void setIsProcessed(long isProcessed) {
-        this.isProcessed = isProcessed;
-    }
 }

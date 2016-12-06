@@ -24,6 +24,8 @@ create table employees1(
 	ename varchar(30) not null,
 	salary decimal(10,2)
 	);
+
+-- using named constaints for better error messages
 create table certified1(
 	eid int,
 	aid int,
@@ -32,28 +34,32 @@ create table certified1(
 	foreign key(aid) references aircraft1(aid)
 	);
 create table start_location(
-	eid int primary key,
-	city varchar(20) not null
+	eid int,
+	city varchar(20) not null,
+	constraint start_location_pk primary key(eid)
 	);
+
 
 create table flight_assignments(
-	flno int primary key, 
-	aid int,
-	eid int
--- 	foreign key(flno) references flights1(flno),
--- 	foreign key(eid) references employees1(eid),
--- 	foreign key(aid) references aircraft1(aid)
-	);
-create table delayed_flights(
-	flno int,
-  foreign key(flno) references flights1(flno)
-	);
+        flno int,
+        aid int,
+        eid int,
+	constraint flight_assignment_pk primary key(flno)
+        );
 
-	create table new_location(
-	eid int primary key,
-	city varchar(20),
-	arrival_time timestamp);
-  
+create table delayed_flights(
+        flno int,
+	constraint delayed_flights_pk primary key(flno)
+        );
+
+create table new_location(
+        eid int,
+        city varchar(20) not null,
+        arrival_time timestamp,
+	constraint new_location_pk primary key(eid)
+        );
+
+
 insert into flights1 values (99,'Los Angeles','Washington D.C.',2308,timestamp '2005-04-12 09:30:00',timestamp '2005-04-12 21:40:00',235.98,0);
 insert into flights1 values (13,'Los Angeles','Chicago',1749,timestamp '2005-04-12 08:45:00',timestamp '2005-04-12 20:45:00',220.98,0);
 insert into flights1 values (346,'Los Angeles','Dallas',1251,timestamp '2005-04-12 11:50:00',timestamp '2005-04-12 19:05:00',225.43,0);
@@ -219,7 +225,4 @@ insert into start_location values (556784565,'Minneapolis');
 insert into start_location values (573284895,'Boston');
 insert into start_location values (574489456,'San Francisco');
 insert into start_location values (574489457,'Minneapolis');
-
-commit;
-
-exit;
+ exit;
