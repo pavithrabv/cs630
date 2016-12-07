@@ -1,22 +1,52 @@
+Homework 5
+Author : Pavithra B Venkatachalam
+
 createairdb.sql: create needed airdb tables
 dropairdb.sql: drop airdb tables
 
-AssignFlights1.java: top-level program
+report.sql              : Sqlplus script with queries "select * from flight_assignments order by flno" ,
+                          "select * from delayed_flights" and
+                          a unified report that lists flno, origin and then aid, eid for flights that have assigned pilots,
+                          but only the string "(delayed)" for delayed flights, all in order of departure time
+
+AssignFlights1SP.java   : Java code with PL/SQL code for AssignFlight(Flight flight)
+createSP1.sql           : contains stored procedure assign_pilot - PL/SQL code of AssignFlight(Flight flight)
 Flight.java:  Java bean for Flights, holds flight information including flight number, origin, destination etc.
-AirDB.java Database access code
 
 To build: javac *.java
-To run: java -cp ojdbc6.jar:. AssignFlights1
+To run: java -cp ojdbc6.jar:. AssignFlights1SP
 
 First use createairdb.sql to create the needed table.
 
-topcat$ java -cp ojdbc6.jar:. AssignFlights1
+topcat$ java -cp ojdbc6.jar:. AssignFlights1SP
 Picked up _JAVA_OPTIONS: -Djava.security.egd=file:/dev/../dev/urandom
 Please enter information for connection to the database
 Using Oracle (o) or MySql (m)? o
 Oracle username: cs630test
 Oracle password: cs630test
-use canned Oracle connection string (y/n): y
+host: dbs3.cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
+
+
+AssignFlights2SP.java   : Java code using PL/SQL for the work of AssignFlight().
+                          The PL/SQL code of assignFlight of AssignFlights2SP is a transaction
+createSP2.sql           : contains stored procedure assign_pilot2 - PL/SQL code of AssignFlight()
+
+To build: javac *.java
+To run: java -cp ojdbc6.jar:. AssignFlights2SP
+
+First use createairdb.sql to create the needed table.
+
+topcat$ java -cp ojdbc6.jar:. AssignFlights2SP
+Picked up _JAVA_OPTIONS: -Djava.security.egd=file:/dev/../dev/urandom
+Please enter information for connection to the database
+Using Oracle (o) or MySql (m)? o
+Oracle username: cs630test
+Oracle password: cs630test
 host: dbs3.cs.umb.edu
 port (often 1521): 1521
 sid (site id): dbs3

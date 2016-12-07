@@ -64,6 +64,7 @@ public class AssignFlights2SP {
 
 		try {
 			connection = getConnected(connStr, username, password);
+			connection.setAutoCommit(false);
 		} catch (SQLException except) {
 			System.out.println("Problem with JDBC Connection");
 			System.out.println(except.getMessage());
@@ -79,24 +80,23 @@ public class AssignFlights2SP {
 			stmt.execute("delete from delayed_flights");
 			stmt.execute("delete from new_location");
 			stmt.execute("update flights1 set is_processed = 0");
+			connection.commit();
 		} catch (SQLException except) {
 			System.out.println("Problem with initialization");
 			System.out.println(except.getMessage());
 			System.exit(3);
 		} finally {
 			closeStatement(stmt);
+
 		}
 
 		try {
 			connection.setAutoCommit(false); // take over transaction lifetime
-			connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
+			//connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 
 			boolean done = false;
-			// process by each row of flights table
-			while (!done) {																															// the
-				// find an airplane and a certified pilot for each flight
-				done = assignFlight();
-			}
+
+			assignFlight();
 			findFinalLocations();
 			
 		} catch (SQLException except) {
@@ -108,99 +108,22 @@ public class AssignFlights2SP {
 	}
 
 	private static boolean assignFlight() throws SQLException {
-		Flight flight = null;
-		PreparedStatement pstmt_1 = null, pstmt_2 = null, pstmt_3 = null, pstmt_4 = null, pstmt_5 = null;
+		CallableStatement cstmt = null;
+
+
 		try {
-			String query_1 = "SELECT * from flights1 f "
-					 + "WHERE f.is_processed = 0"
-					+ " ORDER BY departs";
-			pstmt_1 = connection.prepareStatement(query_1);
-			ResultSet rs_1 = pstmt_1.executeQuery();
-			if (rs_1.next()) {
-				int flno = rs_1.getInt("flno"); // Retrieve the column value
-				String origin = rs_1.getString("origin");
-				String destination = rs_1.getString("destination");
-				int distance = rs_1.getInt("distance");
-				Timestamp departs = rs_1.getTimestamp("departs");
-				Timestamp arrives = rs_1.getTimestamp("arrives");
-				double price = rs_1.getFloat("price");
-				int isProcessed = rs_1.getInt("is_processed");
-				// Note: the following is not required. Could just use the indiv. variables
-				flight = new Flight(flno, origin, destination, distance, departs, arrives, price, isProcessed); // store
-			} else {
-				System.out.println("no more rows");
-				closeStatement(pstmt_1);// Close the PreparedStatement & its ResultSet
-				return true;  // done: no more flights to process
-			}
+			cstmt = connection.prepareCall("{call assign_pilot2");
+			cstmt.execute();
+		} catch (SQLException e) {
+			System.out.println("Problem with assignFlight ");
+			throw (e); // let caller handle after above output
 		} finally {
-			closeStatement(pstmt_1);
-		}
-		int aid = -1, eid = -1;  // in case we can't find a good eid, aid
-		try {
-			String query_2 = "SELECT A.aid, A.aname, E.eid, A.cruisingrange   "
-					+ " FROM aircraft1 A, certified1 E, start_location sl  "
-					+ " WHERE (E.aid = A.aid and sl.eid = e.eid) AND A.cruisingrange > ? "
-					+ " and E.eid not in (select fa.eid from flight_assignments fa) " + " and sl.city = ?"
-					+ " ORDER BY A.cruisingrange";
-			pstmt_2 = connection.prepareStatement(query_2);
-			pstmt_2.clearParameters();
-			pstmt_2.setInt(1, flight.getDistance()); // feed the value to "?"
-			pstmt_2.setString(2, flight.getOrigin());
-			String origin = flight.getOrigin();
-			ResultSet rs_2 = pstmt_2.executeQuery();
-			if (rs_2.next()) {
-				aid = rs_2.getInt("aid");
-				eid = rs_2.getInt("eid");
-				int cruisingrange = +rs_2.getInt("cruisingrange");
-				System.out.println("for flt " + flight.getFlightNumber() + ", from " + origin + ", found: " + aid + " "
-						+ eid + " (" + cruisingrange + ")");
-				while (rs_2.next()) {  // this loop is unnecessary, but shows the other possibilities
-					int aid2 = rs_2.getInt("aid");  // at this point
-					int eid2 = rs_2.getInt("eid");
-					int cruisingrange2 = rs_2.getInt("cruisingrange");
-					if (cruisingrange2 > cruisingrange)
-						break; // not a tie
-					System.out.println("  extra info: found tie:" + aid2 + " " + eid2 + " (" + cruisingrange2 + ")");
-				}
-			}
-		} finally {
-			closeStatement(pstmt_2);
-		}
-		try {
-			// OK, found eid and aid for flight or -1 for both, check it off--
-			String query_3 = "UPDATE flights1 SET is_processed = 1 WHERE flno = ?";
-			pstmt_3 = connection.prepareStatement(query_3);
-			pstmt_3.setInt(1, flight.getFlightNumber());
-			pstmt_3.executeUpdate();
-			pstmt_3.close();
-			System.out.println("flights1 row updated");
-			// Inserts a new row in flight_assignments or delayed_flights
-			if (eid > 0)  // found good eid, aid
-			{
-				String query_4 = "INSERT INTO flight_assignments (flno, aid, eid)  " + "VALUES (?, ?, ?)";
-				pstmt_4 = connection.prepareStatement(query_4);
-				pstmt_4.setInt(1, flight.getFlightNumber());
-				pstmt_4.setInt(2, aid);
-				pstmt_4.setInt(3, eid);
-				pstmt_4.executeUpdate();
-				pstmt_4.close();
-				System.out.println("flight_assignments row inserted");
-			} else {  // no good eid found, need to delay flight
-				String query_5 = "INSERT INTO delayed_flights (flno)  " + "VALUES (?)";
-				pstmt_5 = connection.prepareStatement(query_5);
-				pstmt_5.setInt(1, flight.getFlightNumber());
-				pstmt_5.executeUpdate();
-				pstmt_5.close();
-				System.out.println("***flt " + flight.getFlightNumber() + " from " + flight.getOrigin()
-						+ " delayed_flights row inserted");
-			}
-			connection.commit();
-		} finally {
-			closeStatement(pstmt_4);
+			closeCallableStatement(cstmt);
 		}
 		return false;
+
 	}
-	
+
 	private static void findFinalLocations() throws SQLException {
 
 		PreparedStatement pstmt_5 = null;
@@ -245,6 +168,16 @@ public class AssignFlights2SP {
 		try {
 			if (ps != null) {
 				ps.close();
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+	}
+
+	public static void closeCallableStatement(CallableStatement cstmt) {
+		try {
+			if (cstmt != null) {
+				cstmt.close();
 			}
 		} catch (SQLException e) {
 			System.out.println(e);

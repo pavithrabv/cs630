@@ -41,6 +41,3 @@ FOR findFlightRecord IN findFlightsCursor
   END LOOP;
 
 end;
-/
-show errors;
-exit;

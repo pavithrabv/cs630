@@ -1,0 +1,719 @@
+Script started on Tue 06 Dec 2016 09:05:32 AM EST
+pavithra@topcat:~/cs630/hw5$ sqlplus pavithra/pavithra@//dbs3.cs.umb.edu/dbs3 @d ropairdb.sql
+
+SQL*Plus: Release 12.1.0.2.0 Production on Tue Dec 6 09:05:37 2016
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Tue Dec 06 2016 09:04:52 -05:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+
+Table dropped.
+
+
+Table dropped.
+
+
+Table dropped.
+
+
+Table dropped.
+
+
+Table dropped.
+
+
+Table dropped.
+
+
+Table dropped.
+
+
+Table dropped.
+
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+pavithra@topcat:~/cs630/hw5$ sqlplus pavithra/pavithra@//dbs3.cs.umb.edu/dbs3 @c reateairdb.sql
+
+SQL*Plus: Release 12.1.0.2.0 Production on Tue Dec 6 09:05:45 2016
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Tue Dec 06 2016 09:05:05 -05:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+pavithra@topcat:~/cs630/hw5$ sqlplus pavithra/pavithra@//dbs3.cs.umb.edu/dbs3 @c reateSP1.sql
+
+SQL*Plus: Release 12.1.0.2.0 Production on Tue Dec 6 09:05:51 2016
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Tue Dec 06 2016 09:05:13 -05:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+
+Procedure created.
+
+No errors.
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+pavithra@topcat:~/cs630/hw5$ javac -cp ojdbc6.jar:. AssignFlights1SP.java
+Picked up _JAVA_OPTIONS: -Djava.security.egd=file:/dev/../dev/urandom
+pavithra@topcat:~/cs630/hw5$ java -cp ojdbc6.jar:. AssignFlights1SP
+Picked up _JAVA_OPTIONS: -Djava.security.egd=file:/dev/../dev/urandom
+Oracle username: pavithra
+Oracle password: pavithra
+host: dbs3.cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
+assignFlight for 7789
+assignFlight for 387
+assignFlight for 702
+assignFlight for 2223
+assignFlight for 5694
+assignFlight for 76
+assignFlight for 13
+assignFlight for 701
+assignFlight for 68
+assignFlight for 33
+assignFlight for 99
+assignFlight for 149
+assignFlight for 304
+assignFlight for 346
+assignFlight for 2
+assignFlight for 34
+assignFlight for 4884
+assignFlight for 7
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+one row inserted into new_location
+pavithra@topcat:~/cs630/hw5$ sqlplus pavithra/pavithra@//dbs3.cs.umb.edu/dbs3 @r eport.sql
+
+SQL*Plus: Release 12.1.0.2.0 Production on Tue Dec 6 09:06:35 2016
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Tue Dec 06 2016 09:05:54 -05:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+
+      FLNO	  AID	     EID
+---------- ---------- ----------
+	 2	    3  390487451
+	13	    2	11564812
+	33	    2  552455318
+	68	    2  141582651
+	76	    1  550156548
+	99	    8  355548984
+       304	    2  556784565
+       346	    1  142519864
+       387	    2  242518965
+       702	    6	90873519
+      2223	   10  274878974
+
+      FLNO	  AID	     EID
+---------- ---------- ----------
+      4884	    1  269734834
+      5694	    5  159542516
+      7789	    6  356187925
+
+14 rows selected.
+
+
+      FLNO
+----------
+	 7
+	34
+       149
+       701
+
+FLNO   ORIGIN	  AID	EID
+2   Los Angeles     3	390487451
+7   Los Angeles     (delayed)
+13   Los Angeles     2	 11564812
+33   Los Angeles     2	 552455318
+34   Los Angeles     (delayed)
+68   Chicago	 2   141582651
+76   Chicago	 1   550156548
+99   Los Angeles     8	 355548984
+149   Pittsburgh     (delayed)
+304   Minneapolis     2   556784565
+346   Los Angeles     1   142519864
+387   Los Angeles     2   242518965
+701   Detroit	  (delayed)
+702   Madison	  6   90873519
+2223   Madison	   10	274878974
+4884   Madison	   1   269734834
+5694   Madison	   5   159542516
+7789   Madison	   6   356187925
+
+PL/SQL procedure successfully completed.
+
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+pavithra@topcat:~/cs630/hw5$ exit;
+exit
+
+Script done on Tue 06 Dec 2016 09:06:41 AM EST
