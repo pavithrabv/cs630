@@ -36,10 +36,7 @@ public class AirDB {
         while (allFlights.next()) {
             Flight newFlight = createFlightFromResultSet(allFlights);
 
-            if (!assignFlight(newFlight, conn, assignedEmployees)) {
-                insertIntoDelayedFlights(conn, newFlight.getFlightNumber());
-                //System.out.println("flights not assigned :" + newFlight.getFlightNumber());
-            }
+            
 
         }
     }
