@@ -30,6 +30,7 @@ public class AirDB {
 
     public static void assignAllFlights(Connection conn) throws SQLException {
         Set<Long> assignedEmployees = new HashSet<>();
+        
         Statement getAllFlightsStatement = null;
         getAllFlightsStatement = conn.createStatement();
         ResultSet allFlights = getAllFlightsStatement.executeQuery(ALL_FLIGHTS_QUERY);
